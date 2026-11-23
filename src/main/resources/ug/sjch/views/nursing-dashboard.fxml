@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ug.sjch.controller.NursingDashboardController"
+            styleClass="dashboard-shell nursing-shell">
+    <left>
+        <StackPane>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="238" spacing="6">
+            <HBox styleClass="sidebar-brand" spacing="10">
+                <Label text="✚" styleClass="sidebar-logo"/>
+                <VBox>
+                    <Label text="ST JUDE" styleClass="sidebar-name"/>
+                    <Label text="NURSING CARE" styleClass="sidebar-caption"/>
+                </VBox>
+            </HBox>
+
+            <Label text="NURSING WORKSPACE" styleClass="nav-section"/>
+            <Button fx:id="dashboardButton" text="▦   Dashboard"
+                    styleClass="nav-button, nav-button-active"
+                    onAction="#handleDashboard"/>
+            <Button fx:id="assignedPatientsButton"
+                    text="♙   Admitted Patients"
+                    styleClass="nav-button"
+                    onAction="#handleAssignedPatients"/>
+            <Button fx:id="patientCheckupButton" text="◷   Patient Check-up"
+                    styleClass="nav-button"
+                    onAction="#handlePatientCheckup"/>
+            <Button fx:id="recordVitalsButton" text="♥   Record Vital Signs"
+                    styleClass="nav-button"
+                    onAction="#handleRecordVitals"/>
+            <Button fx:id="nursingNotesButton" text="▤   Nursing Notes"
+                    styleClass="nav-button"
+                    onAction="#handleNursingNotes"/>
+            <Button fx:id="medicationAdministrationButton"
+                    text="✚   Medication Administration"
+                    styleClass="nav-button"
+                    onAction="#handleMedicationAdministration"/>
+            <Button fx:id="patientMonitoringButton"
+                    text="⌁   Patient Monitoring"
+                    styleClass="nav-button"
+                    onAction="#handlePatientMonitoring"/>
+            <Button fx:id="wardReportsButton" text="▥   Ward Reports"
+                    styleClass="nav-button"
+                    onAction="#handleWardReports"/>
+            <Button fx:id="inpatientDashboardButton"
+                    text="▦   Inpatient &amp; Bed Management"
+                    styleClass="nav-button nursing-inpatient-link"
+                    visible="false" managed="false"
+                    onAction="#handleOpenInpatient"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox styleClass="sidebar-user" spacing="10">
+                <Label text="RN" styleClass="avatar"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label fx:id="sidebarUserLabel"
+                           styleClass="sidebar-user-name"/>
+                    <Label fx:id="sidebarRoleLabel"
+                           styleClass="sidebar-user-status"/>
+                </VBox>
+            </HBox>
+            <Button text="⇥   Sign out" styleClass="logout-button"
+                    onAction="#handleLogout"/>
+        </VBox>
+        <Region fx:id="sidebarResizeHandle"
+                styleClass="sidebar-resize-handle"
+                StackPane.alignment="CENTER_RIGHT"/>
+        </StackPane>
+    </left>
+
+    <center>
+        <VBox styleClass="workspace">
+            <HBox styleClass="topbar reception-topbar"
+                  alignment="CENTER_LEFT" spacing="14">
+                <Label text="Nursing Care Command Center"
+                       styleClass="reception-top-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="↻" styleClass="reception-refresh-button"
+                        onAction="#handleRefresh"/>
+                <Label text="●" styleClass="notification-icon"/>
+                <Label text="RN"
+                       styleClass="reception-profile-dot, nursing-profile-dot"/>
+                <VBox spacing="1">
+                    <Label fx:id="topUserLabel" styleClass="top-user-name"/>
+                    <Label fx:id="topRoleLabel" styleClass="top-user-role"/>
+                </VBox>
+            </HBox>
+
+            <ScrollPane fx:id="contentScroll" fitToWidth="true"
+                        styleClass="dashboard-scroll"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="dashboardContent"
+                          styleClass="dashboard-content nursing-content"
+                          spacing="14">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label text="Nursing Care Dashboard"
+                                       styleClass="page-title"/>
+                                <Label fx:id="dateLabel"
+                                       styleClass="page-subtitle"/>
+                            </VBox>
+                            <Label fx:id="statusLabel" text="Loading..."
+                                   styleClass="status-badge"/>
+                        </HBox>
+
+                        <GridPane fx:id="metricGrid"
+                                  styleClass="metrics-grid nursing-metrics"
+                                  hgap="16" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                            </columnConstraints>
+                        </GridPane>
+
+                        <HBox spacing="12" styleClass="nursing-section-row">
+                            <VBox styleClass="panel nursing-panel"
+                                  HBox.hgrow="ALWAYS" spacing="10">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Admitted patients"
+                                               styleClass="panel-title"/>
+                                        <Label text="Current inpatient census; nurse-level assignments are not configured"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label fx:id="assignedCountLabel"
+                                           text="Not configured"
+                                           styleClass="table-count-badge"/>
+                                </HBox>
+                                <VBox styleClass="nursing-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="♙" styleClass="nursing-empty-icon"/>
+                                    <Label text="Patient assignments unavailable"
+                                           styleClass="nursing-empty-title"/>
+                                    <Label fx:id="assignedStateLabel"
+                                           text="Nursing assignment data is not configured."
+                                           styleClass="nursing-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+
+                            <VBox styleClass="panel nursing-panel nursing-alert-panel"
+                                  prefWidth="300" spacing="10">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Patients requiring attention"
+                                               styleClass="panel-title"/>
+                                        <Label text="Priority care queue"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label fx:id="attentionCountLabel"
+                                           text="Not configured"
+                                           styleClass="nursing-alert-badge"/>
+                                </HBox>
+                                <VBox styleClass="nursing-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="!" styleClass="nursing-alert-icon"/>
+                                    <Label text="Attention tracking unavailable"
+                                           styleClass="nursing-empty-title"/>
+                                    <Label fx:id="attentionStateLabel"
+                                           text="Patient attention data is not configured."
+                                           styleClass="nursing-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="12" styleClass="nursing-section-row">
+                            <VBox styleClass="panel nursing-panel"
+                                  HBox.hgrow="ALWAYS" spacing="10">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Vital signs awaiting recording"
+                                               styleClass="panel-title"/>
+                                        <Label text="Observations requiring nurse entry"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label fx:id="vitalsCountLabel"
+                                           text="Not configured"
+                                           styleClass="table-count-badge"/>
+                                </HBox>
+                                <VBox styleClass="nursing-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="♥" styleClass="nursing-empty-icon"/>
+                                    <Label text="Vital signs data unavailable"
+                                           styleClass="nursing-empty-title"/>
+                                    <Label fx:id="vitalsStateLabel"
+                                           text="Vital signs data is not configured."
+                                           styleClass="nursing-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+
+                            <VBox styleClass="panel nursing-panel"
+                                  HBox.hgrow="ALWAYS" spacing="10">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Nursing activities"
+                                               styleClass="panel-title"/>
+                                        <Label text="Recent care and ward activity"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="Today"
+                                           styleClass="table-count-badge"/>
+                                </HBox>
+                                <VBox styleClass="nursing-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="▤" styleClass="nursing-empty-icon"/>
+                                    <Label text="Activity records unavailable"
+                                           styleClass="nursing-empty-title"/>
+                                    <Label fx:id="activitiesStateLabel"
+                                           text="Nursing activity data is not configured."
+                                           styleClass="nursing-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

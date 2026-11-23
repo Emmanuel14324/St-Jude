@@ -1,0 +1,2294 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color: #f3f6f8;
+}
+
+.button {
+    -fx-cursor: hand;
+}
+
+.button:disabled {
+    -fx-cursor: default;
+}
+
+.login-shell {
+    -fx-background-color: white;
+}
+
+.login-brand {
+    -fx-background-color: #102a43;
+    -fx-padding: 52;
+}
+
+.brand-mark {
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: 800;
+    -fx-background-color: #1d7a78;
+    -fx-background-radius: 12;
+    -fx-padding: 18 20 18 20;
+}
+
+.brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 26;
+    -fx-font-weight: 700;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #b8cad8;
+    -fx-font-size: 15;
+}
+
+.login-form-panel {
+    -fx-background-color: #ffffff;
+    -fx-padding: 32 48 28 48;
+}
+
+.login-card {
+    -fx-padding: 12 0 12 0;
+}
+
+.login-title {
+    -fx-text-fill: #102a43;
+    -fx-font-size: 30;
+    -fx-font-weight: 700;
+}
+
+.login-copy {
+    -fx-text-fill: #718096;
+    -fx-font-size: 14;
+}
+
+.field-label {
+    -fx-text-fill: #334e68;
+    -fx-font-size: 13;
+    -fx-font-weight: 700;
+}
+
+.text-field {
+    -fx-background-color: #f8fafb;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2e8;
+    -fx-border-radius: 8;
+    -fx-padding: 12;
+    -fx-font-size: 14;
+}
+
+.text-field:focused {
+    -fx-border-color: #1d7a78;
+}
+
+.error-label {
+    -fx-text-fill: #b42318;
+    -fx-font-size: 13;
+}
+
+.primary-button {
+    -fx-background-color: #1d7a78;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-font-size: 14;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #176865;
+}
+
+.secondary-button {
+    -fx-background-color: #edf4f7;
+    -fx-text-fill: #245b85;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2e8;
+    -fx-border-radius: 8;
+    -fx-padding: 11 12;
+}
+
+.remember-checkbox {
+    -fx-text-fill: #718096;
+    -fx-font-size: 12;
+}
+
+.quick-action {
+    -fx-background-color: #edf4f7;
+    -fx-text-fill: #16324f;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2e8;
+    -fx-border-radius: 8;
+    -fx-padding: 16;
+    -fx-font-weight: 700;
+}
+
+.login-footer {
+    -fx-text-fill: #829ab1;
+    -fx-font-size: 12;
+    -fx-alignment: CENTER;
+}
+
+.dashboard-shell {
+    -fx-background-color: #f5f7fb;
+}
+
+.sidebar {
+    -fx-background-color: #3154c5;
+    -fx-padding: 18 12 14 12;
+    -fx-min-width: 190;
+    -fx-max-width: 320;
+}
+
+.sidebar-resize-handle {
+    -fx-background-color: #4968c8;
+    -fx-background-radius: 2;
+    -fx-min-width: 6;
+    -fx-pref-width: 6;
+    -fx-max-width: 6;
+    -fx-cursor: h_resize;
+}
+
+.sidebar-resize-handle:hover {
+    -fx-background-color: #a9c1ff;
+}
+
+.sidebar-brand {
+    -fx-padding: 4 7 22 7;
+}
+
+.sidebar-logo {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-text-fill: #3154c5;
+    -fx-font-size: 16;
+    -fx-font-weight: 800;
+    -fx-padding: 9 10;
+}
+
+.sidebar-name {
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-font-weight: 800;
+}
+
+.sidebar-caption {
+    -fx-text-fill: #dce5ff;
+    -fx-font-size: 9;
+}
+
+.nav-section {
+    -fx-text-fill: #dce5ff;
+    -fx-font-size: 9;
+    -fx-font-weight: 800;
+    -fx-padding: 8 10 6 10;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f2f5ff;
+    -fx-background-radius: 6;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9 10;
+    -fx-font-size: 11;
+    -fx-cursor: hand;
+}
+
+.nav-button-active {
+    -fx-background-color: #4669d8;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+}
+
+.nav-button:disabled {
+    -fx-opacity: 0.88;
+}
+
+.sidebar-user {
+    -fx-padding: 9 7;
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-radius: 7;
+}
+
+.avatar {
+    -fx-background-color: #dce5ff;
+    -fx-background-radius: 18;
+    -fx-text-fill: #3154c5;
+    -fx-font-weight: 800;
+    -fx-padding: 7 8;
+}
+
+.sidebar-user-name {
+    -fx-text-fill: white;
+    -fx-font-size: 11;
+    -fx-font-weight: 700;
+}
+
+.sidebar-user-status {
+    -fx-text-fill: #dce5ff;
+    -fx-font-size: 9;
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: #f2f5ff;
+    -fx-padding: 9 10;
+    -fx-font-size: 11;
+    -fx-cursor: hand;
+}
+
+.workspace {
+    -fx-background-color: #f5f7fb;
+}
+
+.topbar {
+    -fx-background-color: white;
+    -fx-padding: 10 20;
+    -fx-border-color: transparent transparent #e8ecf2 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.top-search {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+    -fx-border-color: #e2e7ef;
+    -fx-border-radius: 6;
+    -fx-padding: 8 12;
+    -fx-font-size: 11;
+    -fx-max-width: 340;
+}
+
+.notification-icon {
+    -fx-text-fill: #718096;
+    -fx-font-size: 15;
+    -fx-padding: 0 3;
+}
+
+.profile-dot {
+    -fx-background-color: #c7d2e7;
+    -fx-background-radius: 20;
+    -fx-text-fill: #3154c5;
+    -fx-font-size: 10;
+    -fx-padding: 8;
+}
+
+.top-user-name {
+    -fx-text-fill: #263445;
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+}
+
+.top-user-role {
+    -fx-text-fill: #718096;
+    -fx-font-size: 9;
+}
+
+.dashboard-scroll {
+    -fx-background-color: transparent;
+    -fx-background: #f5f7fb;
+    -fx-border-color: transparent;
+}
+
+.dashboard-scroll > .viewport {
+    -fx-background-color: #f5f7fb;
+}
+
+.dashboard-content {
+    -fx-padding: 18 20 20 20;
+}
+
+.page-title {
+    -fx-text-fill: #263445;
+    -fx-font-size: 18;
+    -fx-font-weight: 800;
+}
+
+.page-subtitle {
+    -fx-text-fill: #7a8798;
+    -fx-font-size: 10;
+}
+
+.status-badge {
+    -fx-background-color: #e8f5ef;
+    -fx-text-fill: #2e8b67;
+    -fx-background-radius: 16;
+    -fx-padding: 6 9;
+    -fx-font-size: 9;
+}
+
+.status-badge.status-warning {
+    -fx-background-color: #fff3dc;
+    -fx-text-fill: #9a6b0b;
+}
+
+.status-badge.status-connected {
+    -fx-background-color: #e8f5ef;
+    -fx-text-fill: #2e8b67;
+}
+
+.metric-card {
+    -fx-background-color: white;
+    -fx-background-radius: 7;
+    -fx-padding: 12;
+    -fx-border-color: #e7ebf1;
+    -fx-border-radius: 7;
+    -fx-min-height: 72;
+}
+
+.metric-label {
+    -fx-text-fill: #6f7a89;
+    -fx-font-size: 10;
+}
+
+.metric-value-row {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 8;
+}
+
+.metric-value {
+    -fx-text-fill: #263445;
+    -fx-font-size: 19;
+    -fx-font-weight: 800;
+}
+
+.metric-icon {
+    -fx-background-color: #e8edff;
+    -fx-background-radius: 6;
+    -fx-text-fill: #3154c5;
+    -fx-font-size: 14;
+    -fx-padding: 6 8;
+}
+
+.analytics-row,
+.tables-row {
+    -fx-alignment: TOP_LEFT;
+}
+
+.analytics-row,
+.doctor-analytics-row {
+    -fx-pref-height: 225;
+    -fx-min-height: 225;
+    -fx-max-height: 225;
+}
+
+.tables-row {
+    -fx-pref-height: 195;
+    -fx-min-height: 195;
+}
+
+.panel {
+    -fx-background-color: white;
+    -fx-background-radius: 7;
+    -fx-padding: 12;
+    -fx-border-color: #e7ebf1;
+    -fx-border-radius: 7;
+}
+
+.chart-panel {
+    -fx-pref-height: 218;
+    -fx-min-height: 205;
+    -fx-max-height: 225;
+}
+
+.table-panel {
+    -fx-pref-height: 188;
+    -fx-min-height: 175;
+}
+
+.panel-title {
+    -fx-text-fill: #263445;
+    -fx-font-size: 12;
+    -fx-font-weight: 700;
+}
+
+.panel-hint {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 9;
+}
+
+.panel-menu {
+    -fx-text-fill: #697586;
+    -fx-font-size: 12;
+}
+
+.donut-container {
+    -fx-pref-width: 150;
+    -fx-pref-height: 150;
+    -fx-min-width: 135;
+    -fx-min-height: 135;
+}
+
+.donut-chart {
+    -fx-pref-width: 150;
+    -fx-pref-height: 150;
+}
+
+.donut-hole {
+    -fx-fill: white;
+}
+
+.donut-caption {
+    -fx-text-fill: #7a8798;
+    -fx-font-size: 8;
+}
+
+.donut-total {
+    -fx-text-fill: #263445;
+    -fx-font-size: 17;
+    -fx-font-weight: 800;
+}
+
+.chart-legend {
+    -fx-padding: 0 0 0 4;
+}
+
+.legend-row {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.legend-row .label {
+    -fx-text-fill: #697586;
+    -fx-font-size: 9;
+}
+
+.legend-row .legend-count {
+    -fx-text-fill: #263445;
+    -fx-font-weight: 700;
+}
+
+.staff-chart {
+    -fx-padding: 2 0 0 0;
+    -fx-pref-height: 155;
+    -fx-min-height: 145;
+    -fx-max-height: 155;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #edf0f5;
+}
+
+.chart-bar {
+    -fx-bar-fill: #3b5ccc;
+    -fx-background-radius: 3 3 0 0;
+}
+
+.axis {
+    -fx-tick-label-fill: #7a8798;
+    -fx-font-size: 8;
+}
+
+.axis-label {
+    -fx-text-fill: #7a8798;
+    -fx-font-size: 8;
+}
+
+.dashboard-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: #edf0f5;
+    -fx-font-size: 9;
+}
+
+.dashboard-table .column-header-background {
+    -fx-background-color: #f3f5f8;
+}
+
+.dashboard-table .column-header,
+.dashboard-table .filler {
+    -fx-background-color: #f3f5f8;
+    -fx-size: 27;
+    -fx-border-color: transparent transparent #e7ebf1 transparent;
+}
+
+.dashboard-table .column-header .label {
+    -fx-text-fill: #526071;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.dashboard-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-cell-size: 27;
+}
+
+.dashboard-table .table-row-cell:filled:selected {
+    -fx-background-color: #edf1ff;
+}
+
+.dashboard-table .table-cell {
+    -fx-text-fill: #526071;
+    -fx-padding: 3 6;
+    -fx-border-color: transparent;
+}
+
+.dashboard-table .placeholder .label {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 10;
+}
+
+.doctor-sidebar {
+    -fx-background-color: #111b2e;
+}
+
+.doctor-sidebar .nav-button-active {
+    -fx-background-color: #25344d;
+}
+
+.doctor-content {
+    -fx-spacing: 14;
+}
+
+.doctor-analytics-row {
+    -fx-alignment: TOP_LEFT;
+}
+
+.doctor-chart-panel,
+.doctor-status-panel {
+    -fx-pref-height: 270;
+    -fx-min-height: 250;
+    -fx-max-height: 270;
+}
+
+.doctor-line-chart {
+    -fx-pref-height: 220;
+    -fx-min-height: 195;
+    -fx-max-height: 220;
+}
+
+.doctor-line-chart .chart-series-line {
+    -fx-stroke: #4568d4;
+    -fx-stroke-width: 2;
+}
+
+.doctor-line-chart .chart-line-symbol {
+    -fx-background-color: #4568d4, white;
+    -fx-background-radius: 6;
+    -fx-padding: 3;
+}
+
+.doctor-donut-container {
+    -fx-pref-width: 145;
+    -fx-pref-height: 155;
+}
+
+.doctor-appointments-panel {
+    -fx-pref-height: 290;
+    -fx-min-height: 250;
+}
+
+.doctor-table .table-row-cell {
+    -fx-cell-size: 30;
+}
+
+.table-count-badge {
+    -fx-background-color: #edf1ff;
+    -fx-background-radius: 14;
+    -fx-text-fill: #3154c5;
+    -fx-padding: 5 9;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+}
+
+.chart-pie.default-color0 {
+    -fx-pie-color: #3b5ccc;
+}
+
+.chart-pie.default-color1 {
+    -fx-pie-color: #ef6461;
+}
+
+.chart-pie.default-color2 {
+    -fx-pie-color: #e0a840;
+}
+
+.chart-pie.default-color3 {
+    -fx-pie-color: #38a58b;
+}
+
+.reception-shell {
+    -fx-background-color: #f5f7fa;
+}
+
+.reception-topbar {
+    -fx-padding: 10 18;
+}
+
+.reception-top-title {
+    -fx-text-fill: #263445;
+    -fx-font-size: 13;
+    -fx-font-weight: 700;
+}
+
+.reception-refresh-button {
+    -fx-background-color: #f3f6f9;
+    -fx-background-radius: 6;
+    -fx-text-fill: #08a979;
+    -fx-font-size: 15;
+    -fx-padding: 5 10;
+}
+
+.reception-profile-dot {
+    -fx-background-color: #d7f8ec;
+    -fx-background-radius: 18;
+    -fx-text-fill: #07875f;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8;
+}
+
+.reception-content {
+    -fx-padding: 18;
+}
+
+.reception-content .page-title {
+    -fx-font-size: 18;
+}
+
+.reception-workflow-panel {
+    -fx-padding: 16;
+}
+
+.reception-form-field {
+    -fx-background-color: #f8fafb;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2e8;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    -fx-font-size: 12;
+}
+
+.reception-feedback {
+    -fx-font-size: 12;
+}
+
+.reception-feedback-success {
+    -fx-text-fill: #16794f;
+}
+
+.reception-feedback-error {
+    -fx-text-fill: #b42318;
+}
+
+.admin-content {
+    -fx-padding: 18 20 24 20;
+}
+
+.admin-panel {
+    -fx-padding: 15;
+    -fx-min-width: 260;
+}
+
+.admin-metric-card {
+    -fx-min-height: 82;
+}
+
+.admin-table .table-row-cell {
+    -fx-cell-size: 30;
+}
+
+.admin-form-field {
+    -fx-background-color: #f8fafb;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2e8;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    -fx-font-size: 12;
+}
+
+.admin-feedback {
+    -fx-font-size: 12;
+}
+
+.admin-feedback-success {
+    -fx-text-fill: #16794f;
+}
+
+.admin-feedback-error {
+    -fx-text-fill: #b42318;
+}
+
+.reception-metric-pink {
+    -fx-background-color: #ffe4e9;
+    -fx-border-color: transparent;
+}
+
+.reception-metric-amber {
+    -fx-background-color: #fff3dc;
+    -fx-border-color: transparent;
+}
+
+.reception-metric-green {
+    -fx-background-color: #d7f8eb;
+    -fx-border-color: transparent;
+}
+
+.reception-metric-purple {
+    -fx-background-color: #f3e5ff;
+    -fx-border-color: transparent;
+}
+
+.reception-metric-icon {
+    -fx-background-radius: 20;
+    -fx-background-color: white;
+    -fx-text-fill: #08a979;
+    -fx-font-size: 13;
+    -fx-padding: 7 9;
+}
+
+.reception-metric-pink .reception-metric-icon {
+    -fx-text-fill: #ec5d7a;
+}
+
+.reception-metric-amber .reception-metric-icon {
+    -fx-text-fill: #ef8a55;
+}
+
+.reception-metric-green .reception-metric-icon {
+    -fx-text-fill: #08a979;
+}
+
+.reception-metric-purple .reception-metric-icon {
+    -fx-text-fill: #a45ce0;
+}
+
+.reception-queue-panel {
+    -fx-pref-height: 120;
+    -fx-min-height: 120;
+    -fx-padding: 13 16;
+}
+
+.workflow-step {
+    -fx-padding: 0 3;
+}
+
+.workflow-title {
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+}
+
+.workflow-count {
+    -fx-text-fill: #263445;
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+}
+
+.workflow-progress {
+    -fx-pref-height: 8;
+    -fx-min-height: 8;
+    -fx-max-height: 8;
+    -fx-background-radius: 6;
+    -fx-background-color: rgba(255,255,255,0.8);
+}
+
+.workflow-progress > .track {
+    -fx-background-color: #e9edf2;
+    -fx-background-radius: 6;
+}
+
+.workflow-progress > .bar {
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+}
+
+.queue-progress > .bar {
+    -fx-background-color: #3685ec;
+}
+
+.waiting-progress > .bar {
+    -fx-background-color: #08b887;
+}
+
+.engaged-progress > .bar {
+    -fx-background-color: #a45ce0;
+}
+
+.done-progress > .bar {
+    -fx-background-color: #f39b17;
+}
+
+.queue-color,
+.queue-percent {
+    -fx-text-fill: #3685ec;
+}
+
+.waiting-color,
+.waiting-percent {
+    -fx-text-fill: #08a979;
+}
+
+.engaged-color,
+.engaged-percent {
+    -fx-text-fill: #a45ce0;
+}
+
+.done-color,
+.done-percent {
+    -fx-text-fill: #e28a05;
+}
+
+.workflow-caption {
+    -fx-text-fill: #7a8798;
+    -fx-font-size: 8;
+}
+
+.workflow-percent {
+    -fx-background-color: white;
+    -fx-border-color: #e3e8ef;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 2 5;
+    -fx-font-size: 8;
+}
+
+.reception-table-row {
+    -fx-alignment: TOP_LEFT;
+}
+
+.reception-table-panel {
+    -fx-pref-height: 300;
+    -fx-min-height: 275;
+}
+
+.reception-table .table-row-cell {
+    -fx-cell-size: 30;
+}
+
+.outpatient-shell {
+    -fx-background-color: #f3f6fa;
+}
+
+.outpatient-sidebar {
+    -fx-background-color: #245c98;
+}
+
+.outpatient-sidebar .nav-button-active {
+    -fx-background-color: #1d7a78;
+}
+
+.outpatient-content {
+    -fx-padding: 17 18 20 18;
+}
+
+.outpatient-metrics {
+    -fx-pref-height: 82;
+    -fx-min-height: 82;
+}
+
+.outpatient-metric-card {
+    -fx-min-height: 74;
+    -fx-pref-height: 78;
+    -fx-padding: 10;
+}
+
+.outpatient-card-blue {
+    -fx-background-color: #e4edff;
+    -fx-border-color: transparent;
+}
+
+.outpatient-card-teal {
+    -fx-background-color: #d9f5ef;
+    -fx-border-color: transparent;
+}
+
+.outpatient-card-amber {
+    -fx-background-color: #fff1dc;
+    -fx-border-color: transparent;
+}
+
+.outpatient-card-purple {
+    -fx-background-color: #f2e7ff;
+    -fx-border-color: transparent;
+}
+
+.outpatient-card-red {
+    -fx-background-color: #ffe6e8;
+    -fx-border-color: transparent;
+}
+
+.outpatient-card-blue .metric-icon {
+    -fx-text-fill: #3154c5;
+}
+
+.outpatient-card-teal .metric-icon {
+    -fx-text-fill: #168d7d;
+}
+
+.outpatient-card-amber .metric-icon {
+    -fx-text-fill: #d68a15;
+}
+
+.outpatient-card-purple .metric-icon {
+    -fx-text-fill: #9053ca;
+}
+
+.outpatient-card-red .metric-icon {
+    -fx-text-fill: #d95368;
+}
+
+.outpatient-section-row {
+    -fx-pref-height: 238;
+    -fx-min-height: 218;
+}
+
+.outpatient-main-panel {
+    -fx-pref-height: 238;
+    -fx-min-height: 218;
+}
+
+.outpatient-support-panel {
+    -fx-pref-height: 210;
+    -fx-min-height: 190;
+}
+
+.outpatient-table .table-row-cell {
+    -fx-cell-size: 29;
+}
+
+.nursing-shell {
+    -fx-background-color: #f4f7fa;
+}
+
+.nursing-profile-dot {
+    -fx-background-color: #dceff8;
+    -fx-text-fill: #2877a8;
+}
+
+.nursing-content {
+    -fx-padding: 18;
+}
+
+.nursing-metrics {
+    -fx-pref-height: 88;
+    -fx-min-height: 82;
+}
+
+.nursing-metric-card {
+    -fx-min-height: 76;
+    -fx-pref-height: 82;
+    -fx-padding: 12;
+}
+
+.reception-metric-blue {
+    -fx-background-color: #e2efff;
+    -fx-border-color: transparent;
+}
+
+.reception-metric-blue .reception-metric-icon {
+    -fx-text-fill: #2877a8;
+}
+
+.nursing-section-row {
+    -fx-pref-height: 225;
+    -fx-min-height: 205;
+}
+
+.nursing-panel {
+    -fx-pref-height: 225;
+    -fx-min-height: 205;
+}
+
+.nursing-alert-panel {
+    -fx-border-color: #f4d8d5;
+}
+
+.nursing-alert-badge {
+    -fx-background-color: #fff0ef;
+    -fx-background-radius: 14;
+    -fx-text-fill: #bf4a45;
+    -fx-padding: 5 9;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+}
+
+.nursing-empty-state {
+    -fx-alignment: CENTER;
+    -fx-spacing: 7;
+    -fx-padding: 12;
+}
+
+.nursing-empty-icon {
+    -fx-background-color: #e9f2f8;
+    -fx-background-radius: 24;
+    -fx-text-fill: #2877a8;
+    -fx-font-size: 16;
+    -fx-padding: 10 12;
+}
+
+.nursing-alert-icon {
+    -fx-background-color: #fff0ef;
+    -fx-background-radius: 22;
+    -fx-text-fill: #bf4a45;
+    -fx-font-size: 16;
+    -fx-font-weight: 800;
+    -fx-padding: 9 15;
+}
+
+.nursing-empty-title {
+    -fx-text-fill: #526071;
+    -fx-font-size: 11;
+    -fx-font-weight: 700;
+}
+
+.nursing-empty-copy {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 9;
+    -fx-text-alignment: CENTER;
+    -fx-wrap-text: true;
+    -fx-max-width: 300;
+}
+
+.laboratory-shell {
+    -fx-background-color: #f5f7fb;
+}
+
+.laboratory-profile-dot {
+    -fx-background-color: #dce5ff;
+    -fx-background-radius: 18;
+    -fx-text-fill: #3154c5;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8;
+}
+
+.laboratory-content {
+    -fx-padding: 18 20 24 20;
+}
+
+.laboratory-shell .dashboard-scroll,
+.laboratory-shell .dashboard-scroll > .viewport {
+    -fx-background-color: #f5f7fb;
+    -fx-background: #f5f7fb;
+}
+
+.laboratory-search {
+    -fx-max-width: 290;
+}
+
+.laboratory-filter-button,
+.laboratory-secondary-button {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: #e2e7ef;
+    -fx-border-radius: 6;
+    -fx-text-fill: #526071;
+    -fx-font-size: 10;
+    -fx-padding: 9 12;
+}
+
+.laboratory-primary-button {
+    -fx-background-color: #3154c5;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+    -fx-padding: 9 12;
+}
+
+.laboratory-filter-button:disabled,
+.laboratory-secondary-button:disabled,
+.laboratory-primary-button:disabled {
+    -fx-opacity: 0.72;
+}
+
+.laboratory-metrics {
+    -fx-pref-height: 250;
+    -fx-min-height: 240;
+}
+
+.laboratory-metric-card {
+    -fx-min-height: 116;
+    -fx-pref-height: 126;
+    -fx-spacing: 6;
+    -fx-padding: 12;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 7;
+    -fx-border-color: #e1e7f0;
+    -fx-border-radius: 7;
+    -fx-effect: dropshadow(three-pass-box, rgba(38, 52, 69, 0.10), 4, 0, 1, 2);
+}
+
+.laboratory-metric-icon {
+    -fx-background-color: #e1ebff;
+    -fx-background-radius: 5;
+    -fx-text-fill: #3154c5;
+    -fx-font-size: 13;
+    -fx-font-weight: 700;
+    -fx-alignment: center;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-padding: 6 8;
+}
+
+.laboratory-metric-value {
+    -fx-text-fill: #263445;
+    -fx-font-size: 21;
+    -fx-font-weight: 800;
+}
+
+.laboratory-metric-card .metric-label {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 12;
+    -fx-font-weight: 700;
+}
+
+.laboratory-content .panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 7;
+    -fx-border-color: #e1e7f0;
+    -fx-border-radius: 7;
+    -fx-effect: dropshadow(three-pass-box, rgba(38, 52, 69, 0.08), 3, 0, 1, 1);
+}
+
+.laboratory-requests-panel {
+    -fx-pref-height: 390;
+    -fx-min-height: 300;
+    -fx-padding: 15;
+}
+
+.laboratory-table .table-row-cell {
+    -fx-cell-size: 34;
+}
+
+.pharmacy-shell {
+    -fx-background-color: #f3f6fb;
+}
+
+.pharmacy-profile-dot {
+    -fx-background-color: #dceaff;
+    -fx-background-radius: 18;
+    -fx-text-fill: #2054a3;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8;
+}
+
+.pharmacy-content {
+    -fx-padding: 18 16 22 16;
+}
+
+.pharmacy-shell .dashboard-scroll,
+.pharmacy-shell .dashboard-scroll > .viewport {
+    -fx-background-color: #f3f6fb;
+    -fx-background: #f3f6fb;
+}
+
+.pharmacy-shell .topbar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 12 18;
+}
+
+.pharmacy-content .page-title {
+    -fx-text-fill: #1c2b40;
+    -fx-font-size: 23;
+}
+
+.pharmacy-content .page-subtitle {
+    -fx-text-fill: #71819a;
+    -fx-font-size: 11;
+}
+
+.pharmacy-content .status-badge {
+    -fx-background-color: #e8f0ff;
+    -fx-text-fill: #2054a3;
+}
+
+.pharmacy-search {
+    -fx-max-width: 300;
+}
+
+.pharmacy-filter-button,
+.pharmacy-filter-selected,
+.pharmacy-secondary-button {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: #e2e7ef;
+    -fx-border-radius: 6;
+    -fx-text-fill: #526071;
+    -fx-font-size: 10;
+    -fx-padding: 9 12;
+}
+
+.pharmacy-filter-selected {
+    -fx-background-color: #2864ea;
+    -fx-border-color: #2864ea;
+    -fx-text-fill: white;
+}
+
+.pharmacy-primary-button {
+    -fx-background-color: #2864ea;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+    -fx-padding: 9 12;
+}
+
+.pharmacy-filter-button:disabled,
+.pharmacy-filter-selected:disabled,
+.pharmacy-secondary-button:disabled,
+.pharmacy-primary-button:disabled {
+    -fx-opacity: 0.9;
+}
+
+.pharmacy-metrics {
+    -fx-pref-height: 310;
+    -fx-min-height: 300;
+}
+
+.pharmacy-metric-card {
+    -fx-min-height: 132;
+    -fx-pref-height: 142;
+    -fx-spacing: 5;
+    -fx-padding: 10 12;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #dbe3ee;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(31, 48, 77, 0.12), 4, 0, 2, 2);
+}
+
+.pharmacy-card-blue,
+.pharmacy-card-amber,
+.pharmacy-card-red,
+.pharmacy-card-purple,
+.pharmacy-card-teal,
+.pharmacy-card-green {
+    -fx-background-color: #ffffff;
+}
+
+.pharmacy-metric-card .metric-label {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 12;
+    -fx-font-weight: 700;
+}
+
+.pharmacy-metric-icon {
+    -fx-background-color: #dceaff;
+    -fx-background-radius: 5;
+    -fx-text-fill: #2864ea;
+    -fx-font-size: 14;
+    -fx-font-weight: 700;
+    -fx-alignment: center;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-padding: 6 8;
+}
+
+.pharmacy-metric-value {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 21;
+    -fx-font-weight: 800;
+}
+
+.pharmacy-metric-caption {
+    -fx-text-fill: #71819a;
+    -fx-font-size: 10;
+}
+
+.pharmacy-card-blue .pharmacy-metric-icon,
+.pharmacy-card-amber .pharmacy-metric-icon,
+.pharmacy-card-red .pharmacy-metric-icon,
+.pharmacy-card-purple .pharmacy-metric-icon,
+.pharmacy-card-teal .pharmacy-metric-icon,
+.pharmacy-card-green .pharmacy-metric-icon {
+    -fx-text-fill: #2864ea;
+}
+
+.pharmacy-content .panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #e0e6ef;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(31, 48, 77, 0.08), 3, 0, 1, 1);
+}
+
+.pharmacy-category-panel {
+    -fx-padding: 16;
+}
+
+.pharmacy-category-cards {
+    -fx-padding: 4 0 2 0;
+}
+
+.pharmacy-category-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #e5eaf0;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-min-width: 190;
+    -fx-pref-width: 210;
+    -fx-padding: 13;
+    -fx-spacing: 7;
+    -fx-effect: dropshadow(three-pass-box, rgba(31, 48, 77, 0.08), 3, 0, 1, 1);
+}
+
+.pharmacy-category-name {
+    -fx-text-fill: #24364b;
+    -fx-font-size: 12;
+    -fx-font-weight: 700;
+}
+
+.pharmacy-category-count {
+    -fx-text-fill: #2864ea;
+    -fx-font-size: 19;
+    -fx-font-weight: 800;
+}
+
+.pharmacy-category-detail {
+    -fx-text-fill: #58677a;
+    -fx-font-size: 10;
+}
+
+.pharmacy-alert {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-padding: 8 11;
+}
+
+.pharmacy-stock-alert {
+    -fx-background-color: #fff9e9;
+    -fx-border-color: #f2dfa6;
+}
+
+.pharmacy-expiry-alert {
+    -fx-background-color: #fff0ef;
+    -fx-border-color: #f3d0ce;
+}
+
+.pharmacy-alert-icon {
+    -fx-text-fill: #c18416;
+    -fx-font-size: 11;
+    -fx-font-weight: 800;
+}
+
+.pharmacy-expiry-alert .pharmacy-alert-icon {
+    -fx-text-fill: #c94b55;
+}
+
+.pharmacy-alert-text {
+    -fx-text-fill: #8a6a22;
+    -fx-font-size: 9;
+}
+
+.pharmacy-expiry-alert .pharmacy-alert-text {
+    -fx-text-fill: #a44c51;
+}
+
+.pharmacy-inventory-panel {
+    -fx-pref-height: 300;
+    -fx-min-height: 250;
+}
+
+.pharmacy-table .table-row-cell {
+    -fx-cell-size: 32;
+}
+
+.inpatient-shell {
+    -fx-background-color: #f5f7fa;
+}
+
+.inpatient-profile-dot {
+    -fx-background-color: #e9f3ff;
+    -fx-background-radius: 18;
+    -fx-text-fill: #377fc4;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8;
+}
+
+.inpatient-content {
+    -fx-padding: 18;
+}
+
+.inpatient-search {
+    -fx-max-width: 240;
+}
+
+.inpatient-filter-button,
+.inpatient-secondary-button {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: #e2e7ef;
+    -fx-border-radius: 6;
+    -fx-text-fill: #526071;
+    -fx-font-size: 9;
+    -fx-padding: 8 10;
+}
+
+.inpatient-primary-button {
+    -fx-background-color: #e99a2e;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8 10;
+}
+
+.inpatient-filter-button:disabled,
+.inpatient-secondary-button:disabled,
+.inpatient-primary-button:disabled {
+    -fx-opacity: 0.75;
+}
+
+.inpatient-metrics {
+    -fx-pref-height: 100;
+    -fx-min-height: 94;
+}
+
+.inpatient-metric-card {
+    -fx-min-height: 90;
+    -fx-pref-height: 96;
+    -fx-spacing: 8;
+    -fx-padding: 10;
+    -fx-border-color: #edf0f4;
+}
+
+.inpatient-card-blue {
+    -fx-background-color: #edf3ff;
+}
+
+.inpatient-card-red {
+    -fx-background-color: #fff0ef;
+}
+
+.inpatient-card-green {
+    -fx-background-color: #e9f7ec;
+}
+
+.inpatient-card-purple {
+    -fx-background-color: #f2ecff;
+}
+
+.inpatient-card-amber {
+    -fx-background-color: #fff3df;
+}
+
+.inpatient-card-teal {
+    -fx-background-color: #e4f5f3;
+}
+
+.inpatient-metric-icon {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-text-fill: #377fc4;
+    -fx-font-size: 10;
+    -fx-padding: 5 7;
+}
+
+.inpatient-card-red .inpatient-metric-icon {
+    -fx-text-fill: #dd514b;
+}
+
+.inpatient-card-green .inpatient-metric-icon {
+    -fx-text-fill: #268d42;
+}
+
+.inpatient-card-purple .inpatient-metric-icon {
+    -fx-text-fill: #8859c7;
+}
+
+.inpatient-card-amber .inpatient-metric-icon {
+    -fx-text-fill: #d78a1d;
+}
+
+.inpatient-card-teal .inpatient-metric-icon {
+    -fx-text-fill: #228b83;
+}
+
+.inpatient-metric-value {
+    -fx-text-fill: #263445;
+    -fx-font-size: 12;
+    -fx-font-weight: 800;
+}
+
+.inpatient-content-row {
+    -fx-pref-height: 270;
+    -fx-min-height: 240;
+}
+
+.inpatient-panel,
+.inpatient-capacity-panel {
+    -fx-pref-height: 270;
+    -fx-min-height: 240;
+}
+
+.inpatient-discharge-panel {
+    -fx-pref-height: 210;
+    -fx-min-height: 180;
+}
+
+.inpatient-table .table-row-cell {
+    -fx-cell-size: 30;
+}
+
+.inpatient-empty-state {
+    -fx-alignment: CENTER;
+    -fx-spacing: 8;
+    -fx-padding: 12;
+}
+
+.inpatient-empty-icon {
+    -fx-background-color: #fff2df;
+    -fx-background-radius: 24;
+    -fx-text-fill: #e0912a;
+    -fx-font-size: 16;
+    -fx-padding: 10 12;
+}
+
+.inpatient-empty-title {
+    -fx-text-fill: #526071;
+    -fx-font-size: 11;
+    -fx-font-weight: 700;
+}
+
+.inpatient-empty-copy {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 9;
+    -fx-text-alignment: CENTER;
+    -fx-wrap-text: true;
+    -fx-max-width: 230;
+}
+
+.finance-shell {
+    -fx-background-color: #f5f7fb;
+}
+
+.finance-profile-dot {
+    -fx-background-color: #e8f8ef;
+    -fx-background-radius: 18;
+    -fx-text-fill: #168b64;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8;
+}
+
+.finance-content {
+    -fx-padding: 18;
+}
+
+.finance-search {
+    -fx-max-width: 280;
+}
+
+.finance-filter-button {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: #e2e7ef;
+    -fx-border-radius: 6;
+    -fx-text-fill: #526071;
+    -fx-font-size: 9;
+    -fx-padding: 8 10;
+}
+
+.finance-export-button {
+    -fx-background-color: #2868e8;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 9;
+    -fx-font-weight: 700;
+    -fx-padding: 8 12;
+}
+
+.finance-filter-button:disabled,
+.finance-export-button:disabled {
+    -fx-opacity: 0.75;
+}
+
+.finance-metrics {
+    -fx-pref-height: 300;
+    -fx-min-height: 300;
+}
+
+.finance-metric-card {
+    -fx-min-height: 142;
+    -fx-pref-height: 142;
+    -fx-spacing: 7;
+    -fx-padding: 16 14;
+    -fx-border-color: #e9edf3;
+}
+
+.finance-card-green {
+    -fx-background-color: #edfaf3;
+}
+
+.finance-card-blue {
+    -fx-background-color: #edf3ff;
+}
+
+.finance-card-amber {
+    -fx-background-color: #fff7e6;
+}
+
+.finance-card-purple {
+    -fx-background-color: #f5edff;
+}
+
+.finance-card-teal {
+    -fx-background-color: #e9f8f6;
+}
+
+.finance-metric-icon {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-text-fill: #169764;
+    -fx-font-size: 10;
+    -fx-padding: 5 7;
+}
+
+.finance-card-blue .finance-metric-icon {
+    -fx-text-fill: #2868e8;
+}
+
+.finance-card-amber .finance-metric-icon {
+    -fx-text-fill: #d59318;
+}
+
+.finance-card-purple .finance-metric-icon {
+    -fx-text-fill: #9253c8;
+}
+
+.finance-card-teal .finance-metric-icon {
+    -fx-text-fill: #168b8b;
+}
+
+.finance-metric-value {
+    -fx-text-fill: #263445;
+    -fx-font-size: 12;
+    -fx-font-weight: 800;
+}
+
+.finance-analytics-row {
+    -fx-pref-height: 235;
+    -fx-min-height: 220;
+}
+
+.finance-chart-panel {
+    -fx-pref-height: 235;
+    -fx-min-height: 220;
+}
+
+.finance-chart-icon {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 13;
+}
+
+.finance-empty-state {
+    -fx-alignment: CENTER;
+    -fx-spacing: 9;
+    -fx-padding: 14;
+}
+
+.finance-empty-icon {
+    -fx-background-color: #edf3ff;
+    -fx-background-radius: 24;
+    -fx-text-fill: #2868e8;
+    -fx-font-size: 16;
+    -fx-padding: 10 13;
+}
+
+.finance-empty-copy {
+    -fx-text-fill: #8792a1;
+    -fx-font-size: 10;
+    -fx-text-alignment: CENTER;
+    -fx-wrap-text: true;
+    -fx-max-width: 300;
+}
+
+.finance-invoice-panel {
+    -fx-pref-height: 235;
+    -fx-min-height: 190;
+}
+
+.finance-table .table-row-cell {
+    -fx-cell-size: 31;
+}
+
+.dashboard-content,
+.reception-content,
+.outpatient-content,
+.nursing-content,
+.laboratory-content,
+.pharmacy-content,
+.inpatient-content,
+.finance-content {
+    -fx-padding: 22 24 26 32;
+}
+
+.workspace,
+.dashboard-scroll,
+.metrics-grid,
+.metric-card {
+    -fx-min-width: 0;
+}
+
+.metric-card .metric-label,
+.metric-card .metric-value {
+    -fx-wrap-text: true;
+}
+
+.dashboard-scroll,
+.dashboard-scroll > .viewport,
+.laboratory-shell .dashboard-scroll,
+.laboratory-shell .dashboard-scroll > .viewport,
+.pharmacy-shell .dashboard-scroll,
+.pharmacy-shell .dashboard-scroll > .viewport {
+    -fx-background-color: #f3f6fb;
+    -fx-background: #f3f6fb;
+}
+
+.page-title,
+.pharmacy-content .page-title {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 25;
+    -fx-font-weight: 800;
+}
+
+.page-subtitle,
+.pharmacy-content .page-subtitle {
+    -fx-text-fill: #71819a;
+    -fx-font-size: 12;
+}
+
+.metric-card,
+.admin-metric-card,
+.reception-metric-pink,
+.reception-metric-amber,
+.reception-metric-green,
+.reception-metric-purple,
+.reception-metric-blue,
+.outpatient-metric-card,
+.outpatient-card-blue,
+.outpatient-card-teal,
+.outpatient-card-amber,
+.outpatient-card-purple,
+.outpatient-card-red,
+.nursing-metric-card,
+.laboratory-metric-card,
+.laboratory-card-blue,
+.laboratory-card-purple,
+.laboratory-card-amber,
+.laboratory-card-green,
+.laboratory-card-red,
+.pharmacy-metric-card,
+.pharmacy-card-blue,
+.pharmacy-card-amber,
+.pharmacy-card-red,
+.pharmacy-card-purple,
+.pharmacy-card-teal,
+.pharmacy-card-green,
+.inpatient-metric-card,
+.inpatient-card-blue,
+.inpatient-card-red,
+.inpatient-card-green,
+.inpatient-card-purple,
+.inpatient-card-amber,
+.inpatient-card-teal,
+.finance-metric-card,
+.finance-card-green,
+.finance-card-blue,
+.finance-card-amber,
+.finance-card-purple,
+.finance-card-teal {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-color: #d7e0ec;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(28, 48, 78, 0.10), 5, 0, 1, 2);
+    -fx-min-height: 148;
+    -fx-pref-height: 150;
+    -fx-padding: 14;
+    -fx-spacing: 7;
+}
+
+.metric-label,
+.laboratory-metric-card .metric-label,
+.pharmacy-metric-card .metric-label {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 14;
+    -fx-font-weight: 700;
+}
+
+.metric-value,
+.laboratory-metric-value,
+.pharmacy-metric-value,
+.inpatient-metric-value,
+.finance-metric-value {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 25;
+    -fx-font-weight: 800;
+}
+
+.metric-icon,
+.reception-metric-icon,
+.laboratory-metric-icon,
+.pharmacy-metric-icon,
+.inpatient-metric-icon,
+.finance-metric-icon {
+    -fx-background-color: #e0ecff;
+    -fx-background-radius: 6;
+    -fx-text-fill: #2864ea;
+    -fx-font-size: 16;
+    -fx-font-weight: 700;
+    -fx-alignment: center;
+    -fx-min-width: 40;
+    -fx-pref-width: 40;
+    -fx-min-height: 40;
+    -fx-pref-height: 40;
+    -fx-padding: 6;
+}
+
+.panel,
+.laboratory-content .panel,
+.pharmacy-content .panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-color: #d7e0ec;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(28, 48, 78, 0.07), 4, 0, 1, 1);
+    -fx-padding: 16;
+}
+
+.finance-card-green {
+    -fx-background-color: #edfaf3;
+}
+
+.finance-card-blue {
+    -fx-background-color: #edf3ff;
+}
+
+.finance-card-amber {
+    -fx-background-color: #fff7e6;
+}
+
+.finance-card-purple {
+    -fx-background-color: #f5edff;
+}
+
+.finance-card-teal {
+    -fx-background-color: #e9f8f6;
+}
+
+.finance-metric-card {
+    -fx-effect: dropshadow(three-pass-box, rgba(28, 48, 78, 0.10), 6, 0, 1, 2);
+}
+
+.finance-analytics-row .panel,
+.finance-invoice-panel {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.panel-title {
+    -fx-text-fill: #172b45;
+    -fx-font-size: 14;
+    -fx-font-weight: 700;
+}
+
+.panel-hint {
+    -fx-text-fill: #71819a;
+    -fx-font-size: 11;
+}
+
+/* =====================================================================
+   SJCH DESIGN SYSTEM REFRESH
+   Unified hospital-blue identity, clearer hierarchy and calmer surfaces.
+   ===================================================================== */
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 13px;
+    -fx-base: #f4f7fc;
+    -fx-background: #f4f7fc;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #3478d4;
+    -fx-focus-color: #78a9ed;
+    -fx-faint-focus-color: rgba(52, 120, 212, 0.14);
+}
+
+/* Brand and navigation */
+.login-brand,
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom right, #102d50, #174b83);
+}
+
+.sidebar {
+    -fx-padding: 22 14 16 14;
+    -fx-min-width: 205;
+}
+
+.sidebar-resize-handle { -fx-background-color: #285b91; }
+.sidebar-resize-handle:hover { -fx-background-color: #8bb9f0; }
+.sidebar-logo {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #174b83;
+    -fx-background-radius: 11;
+    -fx-padding: 10 12;
+}
+.sidebar-name { -fx-font-size: 15; }
+.sidebar-caption, .nav-section { -fx-text-fill: #b9d2ef; }
+.nav-section {
+    -fx-font-size: 10;
+    -fx-padding: 13 10 7 10;
+}
+.nav-button {
+    -fx-text-fill: #eaf2fc;
+    -fx-font-size: 12;
+    -fx-padding: 11 12;
+    -fx-background-radius: 8;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.10);
+}
+.nav-button-active {
+    -fx-background-color: #3478d4;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+}
+.nav-button-active:hover { -fx-background-color: #4389e5; }
+.sidebar-user {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-background-radius: 10;
+    -fx-padding: 11 9;
+}
+.avatar {
+    -fx-background-color: #dcecff;
+    -fx-text-fill: #174b83;
+}
+.logout-button {
+    -fx-font-size: 12;
+    -fx-padding: 11 12;
+}
+
+/* One consistent blue across department-specific sidebars and actions */
+.doctor-sidebar,
+.outpatient-sidebar { -fx-background-color: linear-gradient(to bottom, #12365f, #1b568f); }
+.doctor-sidebar .nav-button-active,
+.outpatient-sidebar .nav-button-active { -fx-background-color: #3478d4; }
+.laboratory-primary-button,
+.pharmacy-primary-button,
+.finance-export-button,
+.primary-button {
+    -fx-background-color: #286fc2;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 12;
+    -fx-font-weight: 700;
+    -fx-padding: 10 16;
+}
+.laboratory-primary-button:hover,
+.pharmacy-primary-button:hover,
+.finance-export-button:hover,
+.primary-button:hover { -fx-background-color: #1d5fae; }
+.inpatient-primary-button {
+    -fx-background-color: #286fc2;
+    -fx-background-radius: 8;
+    -fx-font-size: 12;
+    -fx-padding: 10 15;
+}
+
+/* Main workspace and page hierarchy */
+.dashboard-shell,
+.workspace,
+.reception-shell,
+.outpatient-shell,
+.nursing-shell,
+.laboratory-shell,
+.pharmacy-shell,
+.inpatient-shell,
+.finance-shell {
+    -fx-background-color: #f3f6fb;
+}
+.topbar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 13 24;
+    -fx-border-color: transparent transparent #e5ebf3 transparent;
+}
+.page-title,
+.pharmacy-content .page-title {
+    -fx-text-fill: #183653;
+    -fx-font-size: 23;
+    -fx-font-weight: 800;
+}
+.page-subtitle,
+.pharmacy-content .page-subtitle {
+    -fx-text-fill: #71839a;
+    -fx-font-size: 12;
+}
+.dashboard-content,
+.reception-content,
+.outpatient-content,
+.nursing-content,
+.laboratory-content,
+.pharmacy-content,
+.inpatient-content,
+.finance-content {
+    -fx-padding: 24 26 28 26;
+}
+
+/* Panels and metric cards: restrained depth instead of heavy shadows */
+.metric-card,
+.admin-metric-card,
+.reception-metric-pink,
+.reception-metric-amber,
+.reception-metric-green,
+.reception-metric-purple,
+.reception-metric-blue,
+.outpatient-metric-card,
+.outpatient-card-blue,
+.outpatient-card-teal,
+.outpatient-card-amber,
+.outpatient-card-purple,
+.outpatient-card-red,
+.nursing-metric-card,
+.laboratory-metric-card,
+.laboratory-card-blue,
+.laboratory-card-purple,
+.laboratory-card-amber,
+.laboratory-card-green,
+.laboratory-card-red,
+.pharmacy-metric-card,
+.pharmacy-card-blue,
+.pharmacy-card-amber,
+.pharmacy-card-red,
+.pharmacy-card-purple,
+.pharmacy-card-teal,
+.pharmacy-card-green,
+.inpatient-metric-card,
+.inpatient-card-blue,
+.inpatient-card-red,
+.inpatient-card-green,
+.inpatient-card-purple,
+.inpatient-card-amber,
+.inpatient-card-teal,
+.finance-metric-card,
+.finance-card-green,
+.finance-card-blue,
+.finance-card-amber,
+.finance-card-purple,
+.finance-card-teal {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-color: #e2e9f2;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(24, 54, 83, 0.055), 5, 0, 0, 2);
+    -fx-min-height: 96;
+    -fx-pref-height: 112;
+    -fx-padding: 15;
+    -fx-spacing: 8;
+}
+.panel,
+.laboratory-content .panel,
+.pharmacy-content .panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-color: #e2e9f2;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(24, 54, 83, 0.045), 4, 0, 0, 1);
+    -fx-padding: 17;
+}
+.panel-title {
+    -fx-text-fill: #183653;
+    -fx-font-size: 14;
+    -fx-font-weight: 700;
+}
+.panel-hint { -fx-text-fill: #8090a5; -fx-font-size: 11; }
+.metric-label,
+.laboratory-metric-card .metric-label,
+.pharmacy-metric-card .metric-label {
+    -fx-text-fill: #62758c;
+    -fx-font-size: 11;
+    -fx-font-weight: 600;
+}
+.metric-value,
+.laboratory-metric-value,
+.pharmacy-metric-value,
+.inpatient-metric-value,
+.finance-metric-value {
+    -fx-text-fill: #183653;
+    -fx-font-size: 25;
+    -fx-font-weight: 800;
+}
+.metric-icon,
+.reception-metric-icon,
+.laboratory-metric-icon,
+.pharmacy-metric-icon,
+.inpatient-metric-icon,
+.finance-metric-icon {
+    -fx-background-color: #eaf2fc;
+    -fx-background-radius: 9;
+    -fx-text-fill: #286fc2;
+    -fx-font-size: 15;
+    -fx-font-weight: 700;
+    -fx-min-width: 38;
+    -fx-pref-width: 38;
+    -fx-min-height: 38;
+    -fx-pref-height: 38;
+    -fx-padding: 7;
+}
+
+/* Neutralize department-specific rainbow card fills; reserve color for meaning */
+.reception-metric-pink, .reception-metric-amber, .reception-metric-green,
+.reception-metric-purple, .reception-metric-blue,
+.outpatient-card-blue, .outpatient-card-teal, .outpatient-card-amber,
+.outpatient-card-purple, .outpatient-card-red,
+.inpatient-card-blue, .inpatient-card-green, .inpatient-card-purple,
+.inpatient-card-amber, .inpatient-card-teal,
+.finance-card-green, .finance-card-blue, .finance-card-purple, .finance-card-teal {
+    -fx-background-color: #ffffff;
+}
+.reception-metric-icon, .outpatient-card-blue .metric-icon,
+.outpatient-card-teal .metric-icon, .outpatient-card-amber .metric-icon,
+.outpatient-card-purple .metric-icon, .outpatient-card-red .metric-icon,
+.inpatient-metric-icon, .finance-metric-icon {
+    -fx-background-color: #eaf2fc;
+    -fx-text-fill: #286fc2;
+}
+
+/* Fields and selection controls */
+.text-field, .text-area, .reception-form-field, .admin-form-field,
+.top-search, .laboratory-search, .pharmacy-search, .inpatient-search, .finance-search {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #d9e3ef;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 12;
+    -fx-font-size: 12;
+    -fx-text-fill: #263d55;
+    -fx-prompt-text-fill: #9aa9ba;
+}
+.text-field:focused, .text-area:focused,
+.reception-form-field:focused, .admin-form-field:focused,
+.top-search:focused {
+    -fx-border-color: #4a8bd8;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,120,212,0.12), 4, 0, 0, 0);
+}
+.combo-box-base, .date-picker, .choice-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #d9e3ef;
+    -fx-border-radius: 8;
+}
+.combo-box-base:focused, .date-picker:focused, .choice-box:focused {
+    -fx-border-color: #4a8bd8;
+}
+.combo-box .list-cell, .choice-box .label { -fx-text-fill: #263d55; -fx-font-size: 12; }
+.check-box { -fx-text-fill: #52677e; -fx-font-size: 12; }
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #cbd8e7;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.check-box:selected .mark { -fx-background-color: white; }
+.check-box:selected .box { -fx-background-color: #286fc2; -fx-border-color: #286fc2; }
+
+/* Buttons */
+.button {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 12;
+    -fx-padding: 9 14;
+    -fx-cursor: hand;
+}
+.secondary-button, .laboratory-filter-button, .laboratory-secondary-button,
+.pharmacy-filter-button, .pharmacy-secondary-button,
+.inpatient-filter-button, .inpatient-secondary-button, .finance-filter-button {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dce5ef;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #38536f;
+    -fx-font-size: 11;
+    -fx-padding: 9 13;
+}
+.secondary-button:hover, .laboratory-filter-button:hover,
+.laboratory-secondary-button:hover, .pharmacy-filter-button:hover,
+.pharmacy-secondary-button:hover, .inpatient-filter-button:hover,
+.inpatient-secondary-button:hover, .finance-filter-button:hover {
+    -fx-background-color: #f0f6fd;
+    -fx-border-color: #b9d1ed;
+}
+
+/* Tables */
+.dashboard-table, .dashboard-table .virtual-flow, .dashboard-table .clipped-container {
+    -fx-background-color: #ffffff;
+}
+.dashboard-table, .dashboard-table .table-cell {
+    -fx-font-size: 11;
+    -fx-text-fill: #425a73;
+}
+.dashboard-table .column-header-background,
+.dashboard-table .column-header,
+.dashboard-table .filler {
+    -fx-background-color: #f2f6fb;
+    -fx-border-color: transparent transparent #e2e9f2 transparent;
+    -fx-size: 34;
+}
+.dashboard-table .column-header .label {
+    -fx-text-fill: #526b85;
+    -fx-font-size: 10;
+    -fx-font-weight: 700;
+}
+.dashboard-table .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-cell-size: 34;
+    -fx-border-color: transparent transparent #edf1f6 transparent;
+}
+.dashboard-table .table-row-cell:odd { -fx-background-color: #fbfcfe; }
+.dashboard-table .table-row-cell:hover { -fx-background-color: #f1f6fc; }
+.dashboard-table .table-row-cell:filled:selected { -fx-background-color: #e7f1fd; }
+.dashboard-table .table-cell { -fx-padding: 5 9; -fx-border-color: transparent; }
+.table-count-badge { -fx-background-color: #eaf2fc; -fx-text-fill: #286fc2; }
+
+/* Status and feedback */
+.status-badge { -fx-background-radius: 20; -fx-padding: 6 10; -fx-font-size: 10; -fx-font-weight: 700; }
+.status-badge.status-connected { -fx-background-color: #e8f6ef; -fx-text-fill: #237a52; }
+.status-badge.status-warning { -fx-background-color: #fff5df; -fx-text-fill: #94630b; }
+.reception-feedback-success, .admin-feedback-success { -fx-text-fill: #237a52; }
+.reception-feedback-error, .admin-feedback-error { -fx-text-fill: #b33c43; }
+.error-label { -fx-text-fill: #b33c43; }
+
+/* Scrollbars */
+.scroll-bar:vertical, .scroll-bar:horizontal { -fx-background-color: transparent; }
+.scroll-bar:vertical .track, .scroll-bar:horizontal .track { -fx-background-color: transparent; }
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #c8d5e4;
+    -fx-background-radius: 8;
+}
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-background-color: transparent; -fx-padding: 2; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: ""; -fx-padding: 0; }
+
+/* Login page */
+.login-brand { -fx-background-color: linear-gradient(to bottom right, #102d50, #1b568f); }
+.brand-mark { -fx-background-color: #3478d4; -fx-background-radius: 14; }
+.brand-title, .login-title { -fx-text-fill: #173b60; }
+.login-form-panel { -fx-padding: 38 52 34 52; }
+.login-title { -fx-font-size: 31; }
+.login-copy { -fx-text-fill: #71839a; -fx-font-size: 13; }
+.field-label { -fx-text-fill: #38536f; -fx-font-size: 12; }
+.login-footer { -fx-text-fill: #8295aa; }
+
+/* Charts */
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines { -fx-stroke: #e9eff6; }
+.chart-bar { -fx-bar-fill: #3478d4; }
+.doctor-line-chart .chart-series-line { -fx-stroke: #3478d4; }
+.doctor-line-chart .chart-line-symbol { -fx-background-color: #3478d4, white; }
+.chart-pie.default-color0 { -fx-pie-color: #3478d4; }
+.chart-pie.default-color1 { -fx-pie-color: #2b9b8f; }
+.chart-pie.default-color2 { -fx-pie-color: #e6a23c; }
+.chart-pie.default-color3 { -fx-pie-color: #8b9bb0; }

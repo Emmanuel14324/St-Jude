@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ug.sjch.controller.FinanceDashboardController"
+            styleClass="dashboard-shell finance-shell">
+    <left>
+        <StackPane>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="238" spacing="6">
+            <HBox styleClass="sidebar-brand" spacing="10">
+                <Label text="UGX" styleClass="sidebar-logo"/>
+                <VBox>
+                    <Label text="ST JUDE" styleClass="sidebar-name"/>
+                    <Label text="FINANCE" styleClass="sidebar-caption"/>
+                </VBox>
+            </HBox>
+
+            <Label text="FINANCE WORKSPACE" styleClass="nav-section"/>
+            <Button fx:id="dashboardButton" text="▦   Dashboard"
+                    styleClass="nav-button, nav-button-active"
+                    onAction="#showDashboard" disable="true"/>
+            <Button fx:id="patientBillingButton" text="▤   Patient Billing"
+                    styleClass="nav-button" onAction="#showInvoices" disable="true"/>
+            <Button fx:id="recordPaymentButton" text="＄   Record Payments"
+                    styleClass="nav-button" onAction="#showRecordPayment" disable="true"/>
+            <Button fx:id="paymentHistoryButton" text="◴   Payment History"
+                    styleClass="nav-button" onAction="#showPaymentHistory" disable="true"/>
+            <Button fx:id="printReceiptButton" text="▣   Print Receipts"
+                    styleClass="nav-button" onAction="#showReceipts" disable="true"/>
+            <Button fx:id="outstandingBillsButton" text="!   Outstanding Bills"
+                    styleClass="nav-button" onAction="#showOutstanding" disable="true"/>
+            <Button fx:id="revenueReportsButton" text="▥   Revenue Reports"
+                    styleClass="nav-button" onAction="#showReports" disable="true"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox styleClass="sidebar-user" spacing="10">
+                <Label text="FN" styleClass="avatar"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label fx:id="sidebarUserLabel"
+                           styleClass="sidebar-user-name"/>
+                    <Label fx:id="sidebarRoleLabel"
+                           styleClass="sidebar-user-status"/>
+                </VBox>
+            </HBox>
+            <Button text="⇥   Sign out" styleClass="logout-button"
+                    onAction="#handleLogout"/>
+        </VBox>
+        <Region fx:id="sidebarResizeHandle"
+                styleClass="sidebar-resize-handle"
+                StackPane.alignment="CENTER_RIGHT"/>
+        </StackPane>
+    </left>
+
+    <center>
+        <VBox styleClass="workspace">
+            <HBox styleClass="topbar reception-topbar"
+                  alignment="CENTER_LEFT" spacing="12">
+                <TextField fx:id="topSearchField" promptText="Search invoices and payments..."
+                           styleClass="top-search finance-search"
+                           onAction="#handleTopSearch" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="thisMonthButton" text="This Month"
+                        styleClass="finance-filter-button" onAction="#showReports" disable="true"/>
+                <Button fx:id="filterButton" text="Filter"
+                        styleClass="finance-filter-button" onAction="#showInvoices" disable="true"/>
+                <Button fx:id="exportButton" text="Export"
+                        styleClass="finance-export-button" onAction="#showReports" disable="true"/>
+                <Label text="FN" styleClass="finance-profile-dot"/>
+                <VBox spacing="1">
+                    <Label fx:id="topUserLabel" styleClass="top-user-name"/>
+                    <Label fx:id="topRoleLabel" styleClass="top-user-role"/>
+                </VBox>
+            </HBox>
+
+            <ScrollPane fx:id="contentScroll" fitToWidth="true" styleClass="dashboard-scroll"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="dashboardHome" styleClass="dashboard-content finance-content"
+                          spacing="14">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label text="Finance &amp; Billing Dashboard"
+                                       styleClass="page-title"/>
+                                <Label text="Financial reports, revenue analysis, and payment tracking"
+                                       styleClass="page-subtitle"/>
+                                <Label fx:id="dateLabel"
+                                       styleClass="page-subtitle"/>
+                            </VBox>
+                            <Label fx:id="statusLabel" text="Loading..."
+                                   styleClass="status-badge"/>
+                        </HBox>
+
+                        <GridPane styleClass="metrics-grid finance-metrics"
+                                  hgap="16" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                            </columnConstraints>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-green"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="0">
+                                <Label text="UGX" styleClass="finance-metric-icon"/>
+                                <Label fx:id="todaysRevenueValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Today's revenue"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-teal"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="1">
+                                <Label text="▥" styleClass="finance-metric-icon"/>
+                                <Label fx:id="monthlyRevenueValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Monthly revenue"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-blue"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="2">
+                                <Label text="＄" styleClass="finance-metric-icon"/>
+                                <Label fx:id="totalPaymentsValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Total payments"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-amber"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="3">
+                                <Label text="!" styleClass="finance-metric-icon"/>
+                                <Label fx:id="outstandingInvoicesValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Outstanding invoices"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-purple"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="◴" styleClass="finance-metric-icon"/>
+                                <Label fx:id="pendingPaymentsValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Pending payments"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-green"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label text="✓" styleClass="finance-metric-icon"/>
+                                <Label fx:id="paidInvoicesValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Paid invoices"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-blue"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <Label text="½" styleClass="finance-metric-icon"/>
+                                <Label fx:id="partiallyPaidInvoicesValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Partially paid"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                            <VBox styleClass="metric-card finance-metric-card finance-card-amber"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                <Label text="×" styleClass="finance-metric-icon"/>
+                                <Label fx:id="voidedInvoicesValue" text="Not configured"
+                                       styleClass="finance-metric-value"/>
+                                <Label text="Voided invoices"
+                                       styleClass="metric-label" wrapText="true"/>
+                            </VBox>
+                        </GridPane>
+
+                        <HBox spacing="12" styleClass="finance-analytics-row">
+                            <VBox styleClass="panel finance-chart-panel"
+                                  HBox.hgrow="ALWAYS" spacing="9">
+                                <HBox alignment="CENTER_LEFT" spacing="8">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Revenue trend"
+                                               styleClass="panel-title"/>
+                                        <Label text="Daily collections and payments"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="This month"
+                                           styleClass="table-count-badge"/>
+                                </HBox>
+                                <VBox styleClass="finance-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="↗"
+                                           styleClass="finance-empty-icon"/>
+                                    <Label fx:id="revenueTrendStateLabel"
+                                           text="Revenue reporting is not configured."
+                                           styleClass="finance-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                            <VBox styleClass="panel finance-chart-panel"
+                                  HBox.hgrow="ALWAYS" spacing="9">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Payment method statistics"
+                                               styleClass="panel-title"/>
+                                        <Label text="Payment breakdown by method"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="◴" styleClass="finance-chart-icon"/>
+                                </HBox>
+                                <VBox styleClass="finance-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="＄"
+                                           styleClass="finance-empty-icon"/>
+                                    <Label fx:id="paymentMethodStateLabel"
+                                           text="Payment method reporting is not configured."
+                                           styleClass="finance-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+
+                        <VBox styleClass="panel finance-invoice-panel"
+                              spacing="9">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Recent invoices"
+                                           styleClass="panel-title"/>
+                                    <Label text="Latest patient billing activity"
+                                           styleClass="panel-hint"/>
+                                </VBox>
+                                <Label fx:id="invoiceCountLabel" text="Not configured"
+                                       styleClass="table-count-badge"/>
+                            </HBox>
+                            <TableView fx:id="invoiceTable"
+                                       styleClass="dashboard-table finance-table"
+                                       editable="false"
+                                       VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn text="Invoice" prefWidth="170"/>
+                                    <TableColumn text="Patient" prefWidth="180"/>
+                                    <TableColumn text="Status" prefWidth="120"/>
+                                    <TableColumn text="Total" prefWidth="130"/>
+                                    <TableColumn text="Created" prefWidth="145"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

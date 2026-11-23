@@ -1,0 +1,31 @@
+>>>>>>>>>>>>>>>>>>
+
+$env:SJCH_DB_URL = "jdbc:oracle:thin:@//127.0.0.1:1521/XEPDB1"
+
+>>>>>>>>>>>>
+
+$env:SJCH_DB_USER = "SJCH_APP"
+
+>>>>>>>>>>>>>>>>>
+
+$securePassword = Read-Host "Enter your SJCH_APP Oracle database password" -AsSecureString
+$bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword)
+
+try {
+    $env:SJCH_DB_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)
+}
+finally {
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+}
+
+>>>>>>>>>>>>>>>
+check
+>>>>>>>>>>>>>>>
+Write-Host "Database URL: $env:SJCH_DB_URL"
+Write-Host "Database User: $env:SJCH_DB_USER"
+
+if ($env:SJCH_DB_PASSWORD) {
+    Write-Host "Database Password: SET"
+} else {
+    Write-Host "Database Password: MISSING"
+}

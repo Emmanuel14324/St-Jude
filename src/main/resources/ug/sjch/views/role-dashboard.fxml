@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ug.sjch.controller.RoleDashboardController"
+            styleClass="dashboard-shell">
+    <left>
+        <StackPane>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="238" spacing="6">
+            <HBox styleClass="sidebar-brand" spacing="10">
+                <Label text="✚" styleClass="sidebar-logo"/>
+                <VBox>
+                    <Label text="ST JUDE" styleClass="sidebar-name"/>
+                    <Label text="CENTRAL HOSPITAL" styleClass="sidebar-caption"/>
+                </VBox>
+            </HBox>
+
+            <Label text="HOSPITAL WORKSPACE" styleClass="nav-section"/>
+            <Button text="▦   Overview" styleClass="nav-button, nav-button-active"
+                    disable="true"/>
+            <Button text="♙   Patients" styleClass="nav-button" disable="true"/>
+            <Button text="▣   Appointments" styleClass="nav-button" disable="true"/>
+            <Button text="⚕   Doctors &amp; Staff" styleClass="nav-button" disable="true"/>
+            <Button text="⌂   Departments" styleClass="nav-button" disable="true"/>
+            <Button text="⚗   Laboratory" styleClass="nav-button" disable="true"/>
+            <Button text="▤   Pharmacy" styleClass="nav-button" disable="true"/>
+            <Button text="▣   Wards &amp; Admissions" styleClass="nav-button" disable="true"/>
+            <Button text="₵   Billing" styleClass="nav-button" disable="true"/>
+            <Button text="▥   Reports" styleClass="nav-button" disable="true"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="⚙   Settings" styleClass="nav-button" disable="true"/>
+            <HBox styleClass="sidebar-user" spacing="9">
+                <Label text="SJ" styleClass="avatar"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label fx:id="userLabel" styleClass="sidebar-user-name"/>
+                    <Label fx:id="roleLabel" styleClass="sidebar-user-status"/>
+                </VBox>
+            </HBox>
+            <Button text="⇥   Sign out" styleClass="logout-button"
+                    onAction="#handleLogout"/>
+        </VBox>
+        <Region fx:id="sidebarResizeHandle"
+                styleClass="sidebar-resize-handle"
+                StackPane.alignment="CENTER_RIGHT"/>
+        </StackPane>
+    </left>
+
+    <center>
+        <VBox styleClass="workspace">
+            <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="14">
+                <TextField fx:id="searchField"
+                           promptText="Search patients, staff, appointments..."
+                           styleClass="top-search" HBox.hgrow="ALWAYS"/>
+                <Label text="●" styleClass="notification-icon"/>
+                <Label text="●" styleClass="profile-dot"/>
+                <VBox spacing="1">
+                    <Label fx:id="topUserLabel" styleClass="top-user-name"/>
+                    <Label fx:id="topRoleLabel" styleClass="top-user-role"/>
+                </VBox>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="dashboard-scroll"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox styleClass="dashboard-content" spacing="16">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label fx:id="pageTitle" text="Dashboard Overview"
+                                       styleClass="page-title"/>
+                                <Label fx:id="dateLabel" styleClass="page-subtitle"/>
+                            </VBox>
+                            <Label fx:id="statusLabel" text="Connecting..."
+                                   styleClass="status-badge"/>
+                        </HBox>
+
+                        <GridPane fx:id="metricGrid" styleClass="metrics-grid"
+                                  hgap="16" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                            </columnConstraints>
+                        </GridPane>
+
+                        <HBox spacing="12" styleClass="analytics-row">
+                            <VBox styleClass="panel chart-panel"
+                                  HBox.hgrow="ALWAYS" spacing="8">
+                                <HBox alignment="CENTER_LEFT">
+                                    <Label text="Admission overview"
+                                           styleClass="panel-title"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Label text="•••" styleClass="panel-menu"/>
+                                </HBox>
+                                <HBox alignment="CENTER" spacing="12"
+                                      VBox.vgrow="ALWAYS">
+                                    <StackPane styleClass="donut-container">
+                                        <PieChart fx:id="admissionChart"
+                                                  styleClass="donut-chart"
+                                                  legendVisible="false"
+                                                  labelsVisible="false"
+                                                  animated="false"/>
+                                        <Circle radius="55" styleClass="donut-hole"/>
+                                        <VBox alignment="CENTER"
+                                              mouseTransparent="true">
+                                            <Label text="CURRENT"
+                                                   styleClass="donut-caption"/>
+                                            <Label fx:id="admissionTotal"
+                                                   text="0"
+                                                   styleClass="donut-total"/>
+                                            <Label text="Admissions"
+                                                   styleClass="donut-caption"/>
+                                        </VBox>
+                                    </StackPane>
+                                    <VBox fx:id="admissionLegend"
+                                          styleClass="chart-legend"
+                                          spacing="9"/>
+                                </HBox>
+                            </VBox>
+
+                            <VBox styleClass="panel chart-panel"
+                                  HBox.hgrow="ALWAYS" spacing="8">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                        <Label text="Staff by role"
+                                               styleClass="panel-title"/>
+                                        <Label text="Current hospital staffing"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="•••" styleClass="panel-menu"/>
+                                </HBox>
+                                <BarChart fx:id="staffChart"
+                                          styleClass="staff-chart"
+                                          legendVisible="false"
+                                          animated="false"
+                                          VBox.vgrow="ALWAYS">
+                                    <xAxis>
+                                        <CategoryAxis label="Staff role"/>
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis label="Staff members"
+                                                    forceZeroInRange="true"/>
+                                    </yAxis>
+                                </BarChart>
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="12" styleClass="tables-row">
+                            <VBox fx:id="patientPanel" styleClass="panel table-panel"
+                                  HBox.hgrow="ALWAYS" spacing="8">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                        <Label text="Recent patient registrations"
+                                               styleClass="panel-title"/>
+                                        <Label text="Latest records in the patient registry"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="•••" styleClass="panel-menu"/>
+                                </HBox>
+                                <TableView fx:id="patientTable"
+                                           styleClass="dashboard-table"
+                                           VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="patientNumberColumn"
+                                                     text="Patient No."
+                                                     prefWidth="112"/>
+                                        <TableColumn fx:id="patientNameColumn"
+                                                     text="Patient"
+                                                     prefWidth="165"/>
+                                        <TableColumn fx:id="patientDateColumn"
+                                                     text="Registered"
+                                                     prefWidth="105"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+
+                            <VBox styleClass="panel table-panel"
+                                  HBox.hgrow="ALWAYS" spacing="8">
+                                <HBox alignment="CENTER_LEFT">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                        <Label text="Recent staff"
+                                               styleClass="panel-title"/>
+                                        <Label text="Staff directory overview"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label text="•••" styleClass="panel-menu"/>
+                                </HBox>
+                                <TableView fx:id="staffTable"
+                                           styleClass="dashboard-table"
+                                           VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="staffNameColumn"
+                                                     text="Staff member"
+                                                     prefWidth="160"/>
+                                        <TableColumn fx:id="staffRoleColumn"
+                                                     text="Role"
+                                                     prefWidth="130"/>
+                                        <TableColumn fx:id="staffStatusColumn"
+                                                     text="Status"
+                                                     prefWidth="86"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ug.sjch.controller.PharmacyDashboardController"
+            styleClass="dashboard-shell pharmacy-shell">
+    <left>
+        <StackPane>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="238" spacing="6">
+            <HBox styleClass="sidebar-brand" spacing="10">
+                <Label text="✚" styleClass="sidebar-logo"/>
+                <VBox>
+                    <Label text="ST JUDE" styleClass="sidebar-name"/>
+                    <Label text="PHARMACY" styleClass="sidebar-caption"/>
+                </VBox>
+            </HBox>
+
+            <Label text="PHARMACY WORKSPACE" styleClass="nav-section"/>
+            <Button fx:id="dashboardButton" text="▦   Dashboard"
+                    styleClass="nav-button, nav-button-active"
+                    onAction="#showDashboard"/>
+            <Button fx:id="inventoryButton" text="▤   Medicine Inventory"
+                    styleClass="nav-button"
+                    onAction="#showMedicineInventory"/>
+            <Button fx:id="addMedicineButton" text="+   Add Medicine"
+                    styleClass="nav-button"
+                    onAction="#showAddMedicine"/>
+            <Button fx:id="stockManagementButton"
+                    text="▣   Stock Management"
+                    styleClass="nav-button"
+                    onAction="#showStockManagement"/>
+            <Button fx:id="suppliersButton" text="♙   Suppliers"
+                    styleClass="nav-button"
+                    onAction="#showSuppliers"/>
+            <Button fx:id="prescriptionsButton" text="▤   Prescriptions"
+                    styleClass="nav-button"
+                    onAction="#showPrescriptions"/>
+            <Button fx:id="dispenseButton" text="✚   Dispense Medicines"
+                    styleClass="nav-button"
+                    onAction="#showDispensePage"/>
+            <Button fx:id="expiryAlertsButton" text="◷   Expiry Alerts"
+                    styleClass="nav-button"
+                    onAction="#showExpiryAlerts"/>
+            <Button fx:id="stockReportsButton" text="▥   Stock Reports"
+                    styleClass="nav-button"
+                    onAction="#showStockReports"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox styleClass="sidebar-user" spacing="10">
+                <Label text="PH" styleClass="avatar"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label fx:id="sidebarUserLabel"
+                           styleClass="sidebar-user-name"/>
+                    <Label fx:id="sidebarRoleLabel"
+                           styleClass="sidebar-user-status"/>
+                </VBox>
+            </HBox>
+            <Button fx:id="logoutButton" text="⇥   Sign out"
+                    styleClass="logout-button"
+                    onAction="#handleLogout"/>
+        </VBox>
+        <Region fx:id="sidebarResizeHandle"
+                styleClass="sidebar-resize-handle"
+                StackPane.alignment="CENTER_RIGHT"/>
+        </StackPane>
+    </left>
+
+    <center>
+        <VBox styleClass="workspace">
+            <HBox styleClass="topbar reception-topbar"
+                  alignment="CENTER_LEFT" spacing="12">
+                <TextField fx:id="medicineSearchField"
+                           promptText="Search medicines..."
+                           styleClass="top-search pharmacy-search"
+                           onAction="#searchInventory"
+                           HBox.hgrow="ALWAYS"/>
+                <Button fx:id="allFilterButton" text="All"
+                        styleClass="pharmacy-filter-selected"
+                        onAction="#showAllInventory"/>
+                <Button fx:id="lowStockFilterButton" text="Low Stock"
+                        styleClass="pharmacy-filter-button"
+                        onAction="#showLowStockInventory"/>
+                <Button fx:id="expiringFilterButton" text="Expiring"
+                        styleClass="pharmacy-filter-button"
+                        onAction="#showExpiringInventory"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="refreshButton" text="Refresh"
+                        styleClass="pharmacy-secondary-button"
+                        onAction="#refreshDashboardAction"/>
+                <Button fx:id="topAddMedicineButton" text="+  Add Medicine"
+                        styleClass="pharmacy-primary-button"
+                        onAction="#showAddMedicine"/>
+                <Label text="PH" styleClass="pharmacy-profile-dot"/>
+                <VBox spacing="1">
+                    <Label fx:id="topUserLabel" styleClass="top-user-name"/>
+                    <Label fx:id="topRoleLabel" styleClass="top-user-role"/>
+                </VBox>
+            </HBox>
+
+            <ScrollPane fx:id="contentScroll" fitToWidth="true"
+                        styleClass="dashboard-scroll"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="dashboardHome"
+                          styleClass="dashboard-content pharmacy-content"
+                          spacing="13">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label text="Pharmacy &amp; Inventory Dashboard"
+                                       styleClass="page-title"/>
+                                <Label text="Monitor stock, prescriptions, expiry dates, and daily dispensing"
+                                       styleClass="page-subtitle"/>
+                                <Label fx:id="dateLabel"
+                                       styleClass="page-subtitle"/>
+                            </VBox>
+                            <Label fx:id="statusLabel" text="Loading..."
+                                   styleClass="status-badge"/>
+                        </HBox>
+
+                        <GridPane styleClass="metrics-grid pharmacy-metrics"
+                                  hgap="16" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                            </columnConstraints>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-blue"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="0">
+                                <Label text="▤" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="totalMedicinesValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Total medicines"
+                                       styleClass="metric-label"/>
+                                <Label text="Registered products"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-amber"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="1">
+                                <Label text="!" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="lowStockMedicinesValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Low-stock medicines"
+                                       styleClass="metric-label" wrapText="true"/>
+                                <Label text="At or below reorder level"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-red"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="2">
+                                <Label text="×" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="outOfStockMedicinesValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Out-of-stock medicines"
+                                       styleClass="metric-label" wrapText="true"/>
+                                <Label text="Need replenishment"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-purple"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="3">
+                                <Label text="◷" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="expiringMedicinesValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Expiring medicines"
+                                       styleClass="metric-label"/>
+                                <Label text="Within the next 90 days"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-teal"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="▣" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="pendingPrescriptionsValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Pending prescriptions"
+                                       styleClass="metric-label" wrapText="true"/>
+                                <Label text="Awaiting pharmacist action"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                            <VBox styleClass="metric-card pharmacy-metric-card pharmacy-card-green"
+                                  maxWidth="Infinity" GridPane.hgrow="ALWAYS"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label text="✓" styleClass="pharmacy-metric-icon"/>
+                                <Label fx:id="todaysDispensingsValue" text="Loading..."
+                                       styleClass="pharmacy-metric-value"/>
+                                <Label text="Today's dispensing"
+                                       styleClass="metric-label"/>
+                                <Label text="Completed today"
+                                       styleClass="pharmacy-metric-caption"/>
+                            </VBox>
+                        </GridPane>
+
+                        <VBox styleClass="panel pharmacy-category-panel"
+                              spacing="9">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Inventory by category"
+                                           styleClass="panel-title"/>
+                                    <Label text="Active products, available stock, and low-stock items"
+                                           styleClass="panel-hint"/>
+                                </VBox>
+                                <Label fx:id="categoryCountLabel"
+                                       text="Loading..."
+                                       styleClass="table-count-badge"/>
+                            </HBox>
+                            <FlowPane fx:id="categoryCards"
+                                      styleClass="pharmacy-category-cards"
+                                      hgap="10" vgap="10"/>
+                        </VBox>
+
+                        <VBox spacing="8">
+                            <HBox styleClass="pharmacy-alert pharmacy-stock-alert"
+                                  alignment="CENTER_LEFT" spacing="9">
+                                <Label text="!" styleClass="pharmacy-alert-icon"/>
+                                <Label fx:id="stockAlertLabel"
+                                       text="Stock alerts are unavailable"
+                                       styleClass="pharmacy-alert-text"
+                                       wrapText="true"/>
+                            </HBox>
+                            <HBox styleClass="pharmacy-alert pharmacy-expiry-alert"
+                                  alignment="CENTER_LEFT" spacing="9">
+                                <Label text="◷" styleClass="pharmacy-alert-icon"/>
+                                <Label fx:id="expiryAlertLabel"
+                                       text="Expiry alerts are unavailable"
+                                       styleClass="pharmacy-alert-text"
+                                       wrapText="true"/>
+                            </HBox>
+                        </VBox>
+
+                        <VBox styleClass="panel pharmacy-inventory-panel"
+                              spacing="10">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Medicine inventory"
+                                           styleClass="panel-title"/>
+                                    <Label text="Current stock, batches, and expiry dates"
+                                           styleClass="panel-hint"/>
+                                </VBox>
+                                <Label fx:id="inventoryCountLabel" text="Loading..."
+                                       styleClass="table-count-badge"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="8">
+                                <Button fx:id="editDashboardMedicineButton"
+                                        text="Edit selected medicine"
+                                        styleClass="secondary-button"
+                                        onAction="#editSelectedDashboardMedicine"
+                                        disable="true"/>
+                                <Button fx:id="archiveDashboardMedicineButton"
+                                        text="Archive selected medicine"
+                                        styleClass="secondary-button"
+                                        onAction="#archiveSelectedDashboardMedicine"
+                                        disable="true"/>
+                                <Button fx:id="editDashboardBatchButton"
+                                        text="Edit batch metadata"
+                                        styleClass="secondary-button"
+                                        onAction="#editSelectedDashboardBatch"
+                                        disable="true"/>
+                            </HBox>
+                            <Label fx:id="dashboardInventoryActionFeedback"
+                                   wrapText="true"
+                                   styleClass="admin-feedback"/>
+                            <TableView fx:id="medicineTable"
+                                       styleClass="dashboard-table pharmacy-table"
+                                       VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="medicineColumn"
+                                                 text="Medicine" prefWidth="190"/>
+                                    <TableColumn fx:id="categoryColumn"
+                                                 text="Category" prefWidth="120"/>
+                                    <TableColumn fx:id="stockColumn"
+                                                 text="Stock" prefWidth="110"/>
+                                    <TableColumn fx:id="batchColumn"
+                                                 text="Batch" prefWidth="100"/>
+                                    <TableColumn fx:id="expiryColumn"
+                                                 text="Expiry" prefWidth="120"/>
+                                    <TableColumn fx:id="stockStatusColumn"
+                                                 text="Status" prefWidth="120"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

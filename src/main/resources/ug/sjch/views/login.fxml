@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ug.sjch.controller.LoginController"
+      styleClass="login-shell">
+    <VBox styleClass="login-brand" HBox.hgrow="ALWAYS">
+        <Label text="SJCH" styleClass="brand-mark"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Label text="St Jude Central Hospital"
+               styleClass="brand-title"/>
+        <Label text="Hospital Management System"
+               styleClass="brand-subtitle"/>
+        <Region prefHeight="40"/>
+    </VBox>
+
+    <VBox styleClass="login-form-panel" prefWidth="480">
+        <Region VBox.vgrow="ALWAYS"/>
+        <VBox styleClass="login-card" spacing="18">
+            <Label text="Welcome back" styleClass="login-title"/>
+            <Label text="Sign in to continue to your workspace"
+                   styleClass="login-copy"/>
+
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField"
+                       promptText="Enter your username"
+                       styleClass="text-field"/>
+
+            <Label text="Password" styleClass="field-label"/>
+            <HBox spacing="8" alignment="CENTER">
+                <StackPane HBox.hgrow="ALWAYS">
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Enter your password"
+                                   styleClass="text-field"
+                                   onAction="#handleLogin"/>
+                    <TextField fx:id="visiblePasswordField"
+                               promptText="Enter your password"
+                               styleClass="text-field"
+                               onAction="#handleLogin"/>
+                </StackPane>
+                <Button fx:id="visibilityButton" text="Show"
+                        styleClass="secondary-button"
+                        onAction="#togglePasswordVisibility"/>
+            </HBox>
+
+            <CheckBox fx:id="rememberCheckBox"
+                      text="Remember username"
+                      styleClass="remember-checkbox"/>
+
+            <Label fx:id="errorLabel" styleClass="error-label"
+                   wrapText="true"/>
+            <Button text="Sign in"
+                    styleClass="primary-button"
+                    maxWidth="Infinity"
+                    onAction="#handleLogin"/>
+        </VBox>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Label text="Authorized personnel only"
+               styleClass="login-footer"/>
+    </VBox>
+</HBox>

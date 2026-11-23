@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ug.sjch.controller.InpatientDashboardController"
+            styleClass="dashboard-shell inpatient-shell">
+    <left>
+        <StackPane>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="238" spacing="6">
+            <HBox styleClass="sidebar-brand" spacing="10">
+                <Label text="⌂" styleClass="sidebar-logo"/>
+                <VBox>
+                    <Label text="ST JUDE" styleClass="sidebar-name"/>
+                    <Label text="INPATIENT CARE" styleClass="sidebar-caption"/>
+                </VBox>
+            </HBox>
+
+            <Label text="WARD WORKSPACE" styleClass="nav-section"/>
+            <Button fx:id="dashboardButton" text="▦   Dashboard"
+                    styleClass="nav-button, nav-button-active"
+                    onAction="#handleDashboard"/>
+            <Button fx:id="wardManagementButton" text="▤   Ward Management"
+                    styleClass="nav-button"
+                    onAction="#handleWardManagement"/>
+            <Button fx:id="bedManagementButton" text="▦   Bed Management"
+                    styleClass="nav-button"
+                    onAction="#handleBedManagement"/>
+            <Button fx:id="admissionsButton" text="♙   Patient Admissions"
+                    styleClass="nav-button"
+                    onAction="#handleAdmissions"/>
+            <Button fx:id="bedAllocationButton" text="⌂   Bed Allocation"
+                    styleClass="nav-button"
+                    onAction="#handleBedAllocation"/>
+            <Button fx:id="transfersButton" text="⇄   Patient Transfers"
+                    styleClass="nav-button"
+                    onAction="#handleTransfers"/>
+            <Button fx:id="dischargeButton" text="⇥   Discharge Management"
+                    styleClass="nav-button"
+                    onAction="#handleDischarge"/>
+            <Button fx:id="recordsButton" text="▤   Inpatient Records"
+                    styleClass="nav-button"
+                    onAction="#handleRecords"/>
+            <Button fx:id="reportsButton" text="▥   Ward Reports"
+                    styleClass="nav-button"
+                    onAction="#handleReports"/>
+            <Button fx:id="nursingDashboardButton"
+                    text="⚕   Nursing Care Dashboard"
+                    styleClass="nav-button inpatient-nursing-link"
+                    visible="false" managed="false"
+                    onAction="#handleOpenNursing"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <HBox styleClass="sidebar-user" spacing="10">
+                <Label text="WM" styleClass="avatar"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label fx:id="sidebarUserLabel"
+                           styleClass="sidebar-user-name"/>
+                    <Label fx:id="sidebarRoleLabel"
+                           styleClass="sidebar-user-status"/>
+                </VBox>
+            </HBox>
+            <Button text="⇥   Sign out" styleClass="logout-button"
+                    onAction="#handleLogout"/>
+        </VBox>
+        <Region fx:id="sidebarResizeHandle"
+                styleClass="sidebar-resize-handle"
+                StackPane.alignment="CENTER_RIGHT"/>
+        </StackPane>
+    </left>
+
+    <center>
+        <VBox styleClass="workspace">
+            <HBox styleClass="topbar reception-topbar"
+                  alignment="CENTER_LEFT" spacing="12">
+                <TextField promptText="Search wards or beds..."
+                           styleClass="top-search inpatient-search"
+                           editable="false" HBox.hgrow="ALWAYS"/>
+                <Button text="Filter" styleClass="inpatient-filter-button"
+                        disable="true"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="topNewAdmissionButton" text="+  New Admission"
+                        styleClass="inpatient-secondary-button"
+                        onAction="#handleAdmissions"/>
+                <Button fx:id="topAllocateBedButton" text="Allocate Bed"
+                        styleClass="inpatient-primary-button"
+                        onAction="#handleBedAllocation"/>
+                <Button text="↻" styleClass="reception-refresh-button"
+                        onAction="#handleRefresh"/>
+                <Label text="WM" styleClass="inpatient-profile-dot"/>
+                <VBox spacing="1">
+                    <Label fx:id="topUserLabel" styleClass="top-user-name"/>
+                    <Label fx:id="topRoleLabel" styleClass="top-user-role"/>
+                </VBox>
+            </HBox>
+
+            <ScrollPane fx:id="contentScroll" fitToWidth="true"
+                        styleClass="dashboard-scroll"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="dashboardContent"
+                          styleClass="dashboard-content inpatient-content"
+                          spacing="14">
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label text="Inpatient &amp; Bed Management"
+                                       styleClass="page-title"/>
+                                <Label text="Ward capacity, admissions, and discharge overview"
+                                       styleClass="page-subtitle"/>
+                                <Label fx:id="dateLabel"
+                                       styleClass="page-subtitle"/>
+                            </VBox>
+                            <Label fx:id="statusLabel" text="Loading..."
+                                   styleClass="status-badge"/>
+                        </HBox>
+
+                        <GridPane fx:id="metricGrid"
+                                  styleClass="metrics-grid inpatient-metrics"
+                                  hgap="16" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                                <ColumnConstraints percentWidth="25"/>
+                            </columnConstraints>
+                        </GridPane>
+
+                        <HBox spacing="12" styleClass="inpatient-content-row">
+                            <VBox styleClass="panel inpatient-panel"
+                                  HBox.hgrow="ALWAYS" spacing="9">
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                        <Label text="Ward availability"
+                                               styleClass="panel-title"/>
+                                        <Label text="Bed assignment and patient status"
+                                               styleClass="panel-hint"/>
+                                    </VBox>
+                                    <Label fx:id="homeBedCountLabel"
+                                           text="Not configured"
+                                           styleClass="table-count-badge"/>
+                                </HBox>
+                                <TableView fx:id="bedTable"
+                                           styleClass="dashboard-table inpatient-table"
+                                           VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="homeBedIdColumn"
+                                                     text="Bed" prefWidth="90"/>
+                                        <TableColumn fx:id="homeBedPatientColumn"
+                                                     text="Patient" prefWidth="140"/>
+                                        <TableColumn fx:id="homeBedStatusColumn"
+                                                     text="Status" prefWidth="95"/>
+                                        <TableColumn fx:id="homeBedStayColumn"
+                                                     text="Admitted" prefWidth="105"/>
+                                        <TableColumn fx:id="homeBedWardColumn"
+                                                     text="Ward" prefWidth="95"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+
+                            <VBox styleClass="panel inpatient-capacity-panel"
+                                  prefWidth="275" spacing="9">
+                                <Label text="Ward occupancy"
+                                       styleClass="panel-title"/>
+                                <Label text="Current capacity overview"
+                                       styleClass="panel-hint"/>
+                                <VBox styleClass="inpatient-empty-state"
+                                      VBox.vgrow="ALWAYS">
+                                    <Label text="⌂"
+                                           styleClass="inpatient-empty-icon"/>
+                                    <Label text="Capacity data unavailable"
+                                           styleClass="inpatient-empty-title"/>
+                                    <Label fx:id="occupancyStateLabel"
+                                           text="Ward and bed data is not configured."
+                                           styleClass="inpatient-empty-copy"
+                                           wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+
+                        <VBox styleClass="panel inpatient-discharge-panel"
+                              spacing="9">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <VBox HBox.hgrow="ALWAYS" spacing="2">
+                                    <Label text="Patients awaiting discharge"
+                                           styleClass="panel-title"/>
+                                    <Label text="Patients whose discharge process is pending"
+                                           styleClass="panel-hint"/>
+                                </VBox>
+                                <Label fx:id="homeDischargeCountLabel"
+                                       text="Not configured"
+                                       styleClass="table-count-badge"/>
+                            </HBox>
+                            <TableView fx:id="dischargeTable"
+                                       styleClass="dashboard-table inpatient-table"
+                                       VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="homeDischargePatientNumberColumn"
+                                                 text="Patient No." prefWidth="120"/>
+                                    <TableColumn fx:id="homeDischargePatientColumn"
+                                                 text="Patient" prefWidth="180"/>
+                                    <TableColumn fx:id="homeDischargeBedColumn"
+                                                 text="Ward / Bed" prefWidth="140"/>
+                                    <TableColumn fx:id="homeDischargeAdmittedColumn"
+                                                 text="Admitted" prefWidth="150"/>
+                                    <TableColumn fx:id="homeDischargeStatusColumn"
+                                                 text="Discharge status" prefWidth="150"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>
